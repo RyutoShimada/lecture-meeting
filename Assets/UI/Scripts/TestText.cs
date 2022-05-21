@@ -16,6 +16,6 @@ public class TestText : MonoBehaviour
     void Update()
     {
         _timer += Time.deltaTime;
-        _text.text = $"TIME : {_timer.ToString("0")}";
+        _text.text = $"TIME : {_timer.ToString("f2")}";
     }
 }
