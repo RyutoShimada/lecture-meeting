@@ -1,12 +1,16 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class Test : MonoBehaviour
 {
     Animator _anim = default;
     
     void Start()
     {
-        TryGetComponent(out _anim);
+        if (!TryGetComponent(out _anim))
+        {
+            gameObject.AddComponent<Animator>();
+        }
     }
 
     public void Animation(string animationName)

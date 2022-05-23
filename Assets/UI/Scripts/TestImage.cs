@@ -40,6 +40,6 @@ public class TestImage : MonoBehaviour
 
     public void ControlTime()
     {
-        _isStop = _isStop == true ? false : true;
+        _isStop ^= true;
     }
 }

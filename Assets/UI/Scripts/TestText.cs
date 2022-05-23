@@ -20,6 +20,6 @@ public class TestText : MonoBehaviour
 
     public void ControlTime()
     {
-        _isStop = _isStop == true ? false : true;
+        _isStop ^= true;
     }
 }
