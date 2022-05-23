@@ -8,14 +8,18 @@ public class TestText : MonoBehaviour
 
     float _timer = default;
 
-    void Start()
-    {
-
-    }
+    bool _isStop = default;
 
     void Update()
     {
+        if (_isStop) { return; }
+
         _timer += Time.deltaTime;
         _text.text = $"TIME : {_timer.ToString("f2")}";
+    }
+
+    public void ControlTime()
+    {
+        _isStop = _isStop == true ? false : true;
     }
 }

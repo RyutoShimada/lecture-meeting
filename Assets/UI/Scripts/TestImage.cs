@@ -19,6 +19,8 @@ public class TestImage : MonoBehaviour
 
     float _timer = default;
 
+    bool _isStop = default;
+
     private void Start()
     {
         _imageObject.sprite = _source1;
@@ -26,20 +28,18 @@ public class TestImage : MonoBehaviour
 
     void Update()
     {
-        _timer += Time.deltaTime;
+        if (_isStop) { return; }
 
+        _timer += Time.deltaTime;
         if (_timer > _interval)
         {
             _timer = 0;
-
-            if (_imageObject.sprite == _source1)
-            {
-                _imageObject.sprite = _source2;
-            }
-            else
-            {
-                _imageObject.sprite = _source1;
-            }
+            _imageObject.sprite = _imageObject.sprite == _source1 ? _source2 : _source1;
         }
+    }
+
+    public void ControlTime()
+    {
+        _isStop = _isStop == true ? false : true;
     }
 }
